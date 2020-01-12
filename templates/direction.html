@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+    {% set amount_tours = tours|length %}
+    {% set cheap_tour = tours|min(attribute="price") %}
+    {% set min_price = locale.currency(cheap_tour.price, symbol=True, grouping=True) %}
+    {% set expensive_tour = tours|max(attribute="price") %}
+    {% set max_price = locale.currency(expensive_tour.price, symbol=True, grouping=True) %}
+    {% set short_tour = tours|min(attribute="nights") %}
+    {% set long_tour = tours|max(attribute="nights") %}
+
+    <h1 class="display-5 mt-4">Летим <span data-test="from">{{ departure|escape }}</span></h1>
+    <p class="mb-4" >Найдено <span data-test="tourcount">{{ amount_tours|escape }}</span> туров, от <span data-test="pricemin">{{ min_price|escape }}</span> до <span data-test="pricemax">{{ max_price|escape }}</span> и от <span data-test="nightsmax">{{ short_tour.nights|escape }}</span> ночей до <span data-test="nightsmax">{{ long_tour.nights|escape }}</span> ночей</p>
+    <!-- HERO -->
+
+    <!-- CARDS -->
+
+      <div class="row mt-5" data-test="cards">
+        {% for tour in tours %}
+
+        <div class="col-12 col-md-6 col-lg-4" data-test="card">
+            <div class="card mb-3" >
+                <div class="card-img" data-test="picture" data-test="picture" style="background-image: url({{ tour.picture|escape }});"></div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ tour.title|escape }}</h5>
+                    <p class="card-text">{{ tour.description|escape|truncate(188) }}</p>
+                    <a href="/tours/{{ tour.id|escape }}" class="btn btn-sm btn-primary" data-test="tourlink">Подробнее</a>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}

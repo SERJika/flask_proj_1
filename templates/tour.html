@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+    {% set tour_price = locale.currency(tour.price, symbol=True, grouping=True) %}
+    {% set stars_amount = tour.stars|escape|int %}
+
+<h1 class="display-3 mt-4 tour-title" data-test="title">{{ tour.title|escape }}  <span class="stars-bl">{% for n in range(stars_amount) %} ★ {% endfor %}</span></h1>
+
+    <!-- HERO -->
+
+    <p class="lead" data-test="lead"><span data-test="country">{{ tour.country|escape }}</span><span data-text="departure">{{ departure|escape }}</span>, <span data-text="nights">{{ tour.nights }}</span> ночей</p>
+
+    <img data-test="picture" src="{{ tour.picture|escape }}" class="w-75" alt="">
+
+    <p class="my-4 w-75" data-test="description">{{ tour.description|escape }}</p>
+
+    <a href="" class="btn btn-success btn-lg" data-test="buybutton">Купить тур за <span data-test="price">{{ tour_price|escape }}</span></a>
+</div>
+
+{% endblock %}

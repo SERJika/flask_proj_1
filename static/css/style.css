@@ -1,0 +1,53 @@
+.card-img {
+    min-height: 230px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #f5f5f5;
+}
+.card-text {
+    height: 165px;
+    overflow-y: hidden;
+}
+
+.tour-title {
+    font-size: 2rem;
+}
+.stars-bl {
+    display: block;
+}
+
+@media (min-width: 414px) {
+    .tour-title {
+        font-size: 2.2rem;
+    }
+    .card-text {
+        height: 130px;
+    }
+}
+@media (min-width: 576px) {
+    .card-text {
+        height: 100px;
+    }
+}
+@media (min-width: 768px) {
+    .card-text {
+        height: 165px;
+    }
+}
+@media (min-width: 991px) {
+    .tour-title {
+        font-size: 3.5rem;
+    }
+    .card-title {
+        font-size: 1.12rem;
+    }
+    .card-text {
+        height: 190px;
+    }
+}
+@media (min-width: 1200px) {
+    .card-text {
+        height: 145px;
+    }
+}
