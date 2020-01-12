@@ -228,7 +228,7 @@ def direction(direction):
     )
     output = render_template("direction.html", **template_context)  # return 'Здесь будет направление'
     return output
-# ★
+
 @app.route('/tours/<id>')
 def tour(id):
     try:
