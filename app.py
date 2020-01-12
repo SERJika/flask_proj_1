@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, abort
 import locale
 
-locale.setlocale(locale.LC_ALL, 'ru_RU.UTF-8')
+locale.setlocale(locale.LC_ALL, 'ru_RU.utf8')
 
 app = Flask(__name__)
 
